@@ -1,12 +1,12 @@
-import React,{useState} from 'react'
-import {navItems} from '../constants/index'
-import logo from '../assets/logo.png'
-import {Menu, X } from 'lucide-react'
+import React, { useState } from "react";
+import { navItems } from "../constants/index";
+import logo from "../assets/logo.png";
+import { Menu, X } from "lucide-react";
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const toggleNavbar = () => {
-        setIsOpen(!isOpen);
-    }
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <nav className="sticky top-0 z-50 py-3 backdrop-blur-lg boarder-b boarder-neutral-700/80">
@@ -24,20 +24,51 @@ const Navbar = () => {
             ))}
           </ul>
           <div className="hidden lg:flex justify-center space-x-12 items-center ">
-            <a href="#" className="py-2 px-3 border rounded-md">
+            <a
+              href="#"
+              className="py-2 px-3 border rounded-md hover:scale-105 hover:text-gray-300"
+            >
               Sign In
             </a>
-            <a href="" className=' bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3  rounded-md'>Create an account </a>
-                  </div>
-                  <div className="lg:hidden md:flex flex-col justify-end">
-                      <button onClick={toggleNavbar}>
-                          {isOpen ? <X /> : <Menu />}
-                      </button>
-                  </div>
+            <a
+              href=""
+              className=" bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3  rounded-md hover:scale-105 hover:text-gray-100/80"
+            >
+              Create an account{" "}
+            </a>
+          </div>
+          <div className="lg:hidden md:flex flex-col justify-end">
+            <button onClick={toggleNavbar}>{isOpen ? <X /> : <Menu />}</button>
+          </div>
         </div>
+        {isOpen && (
+          <div className="fixed right-0 z-20 bg-neutral-900 w-full p-12 flex flex-col justify-center items-center lg:hidden">
+            <ul>
+              {navItems.map((item, index) => (
+                <li className="py-4" key={index}>
+                  <a href={item.href}>{item.label}</a>
+                </li>
+              ))}
+            </ul>
+            <div className="flex space-x-6">
+              <a
+                href="#"
+                className="py-2 px-3 border rounded-md hover:scale-105 hover:text-gray-300"
+              >
+                Sign In
+              </a>
+              <a
+                href=""
+                className=" bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3  rounded-md hover:scale-105 hover:text-gray-100/80"
+              >
+                Create an account{" "}
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
-}
+};
 
-export default Navbar
+export default Navbar;
