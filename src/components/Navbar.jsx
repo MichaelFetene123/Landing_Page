@@ -59,7 +59,7 @@ const Navbar = () => {
               </a>
               <a
                 href=""
-                className=" bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3  rounded-md hover:scale-105 hover:text-gray-100/80"
+                className=" bg-gradient-to-r from-orange-500  to-orange-800 py-2 px-3  rounded-md transition-all duration-300 transform   hover:scale-105  hover:text-gray-100/80"
               >
                 Create an account{" "}
               </a>
